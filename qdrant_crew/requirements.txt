@@ -1,0 +1,6 @@
+crewai==0.28.8
+crewai-tools==0.2.3
+fastapi==0.111.0
+qdrant-client==1.9.1
+python-dotenv==1.0.1
+arize-phoenix==3.24.0

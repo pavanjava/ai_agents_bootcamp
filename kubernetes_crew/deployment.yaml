@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: products-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: products-api
+  template:
+    metadata:
+      labels:
+        app: products-api
+    spec:
+      containers:
+      - name: products-api
+        image: manthapavankumar11/product_api:latest
+        env:
+        - name: "DB_HOST"
+          value: "host.docker.internal"
+        ports:
+        - containerPort: 3001
+        resources:
+          limits:
+            cpu: "100m"
+            memory: "256Mi"
+          requests:
+            cpu: "40m"
+            memory: "128Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: products-entrypoint
+spec:
+  selector:
+    app: products-api
+  ports:
+    - protocol: TCP
+      name: port1
+      port: 3001
+      targetPort: 3001
+      nodePort: 30021
+  type: NodePort
