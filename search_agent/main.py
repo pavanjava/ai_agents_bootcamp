@@ -9,8 +9,8 @@ import operator
 import os
 
 # setup environment variables - prerequisites
-os.environ["SERPER_API_KEY"] = "64157c9cd618699724dc1499a405c907d84904b9"
-os.environ["OPENAI_API_KEY"] = "sk-proj-HwSw1Aa8HSZ1ZnXON7xJT3BlbkFJJPVp0kE2OBISFg3RJPDE"
+os.environ["SERPER_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = ""
 
 model = ChatOpenAI(model="gpt-4-turbo", temperature=0)
 
